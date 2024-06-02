@@ -30,14 +30,17 @@
         .box{
             display: flex;
             justify-content: center;
-            margin: 50px 100px;
-            padding: 50px 0;
+            margin: 50px 150px;
+            padding: 100px 0;
             background-color: white;
             gap: 50px;
         }
         .input{
             border: 1px solid black;
-            padding: 30px 50px;
+            padding: 100px 50px;
+        }
+        input, select{
+            height: 30px;
         }
         .btn{
             display: flex;
@@ -67,8 +70,8 @@
     <div class="container">
         <div class="box">
             <div class="input">
-                <input type="text" placeholder="Task">
-                <select name="priority" id="">
+                <input type="text" placeholder="Task" value="">
+                <select name="" id="priority">
                     <option value="low">Low</option>
                     <option value="medium">Medium</option>
                     <option value="high">High</option>
@@ -89,7 +92,7 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        
                     </tbody>
                 </table>
             </div>
@@ -97,3 +100,34 @@
     </div>
 </body>
 </html>
+
+<script>
+    const input=document.getElementsByTagName("input")[0]
+    const priority=document.getElementById("priority")
+    const btn=document.getElementsByTagName("button")[0]  
+    const tableBody=document.getElementsByTagName("tbody")[0]
+
+    const tableRows=JSON.parse(localStorage.getItem("tableRows")) || []
+    tableBody.innerHTML=tableRows
+    
+    document.addEventListener("DOMContentLoaded",()=>{
+
+        btn.addEventListener("click",()=>{
+
+            const inputValue=input.value
+            const priorityValue=priority.value
+
+            let tableRow=document.createElement("tr")
+            
+            tableRow.innerHTML=
+                `<td><p class="task">${inputValue}</p></td>
+                <td><p class="priority">${priorityValue}</p></td>
+                <td><p class="Status"></p></td>
+                <td><button class="remove-btn">Remove</button></td>`
+
+            tableBody.append(tableRow)
+
+            // localStorage.setItem("tableRows", JSON.stringify(tableBody))
+        })
+    })
+</script>
