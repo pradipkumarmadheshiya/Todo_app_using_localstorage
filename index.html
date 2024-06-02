@@ -128,11 +128,15 @@
                 `<td><p class="task">${inputValue}</p></td>
                 <td><p class="priority">${priorityValue}</p></td>
                 <td><p class="Status"></p>Pending</td>
-                <td><button class="remove-btn">Remove</button></td>`
+                <td><button class="remove-btn" onclick="${remove()}">Remove</button></td>`
 
             tableBody.append(tableRow)
 
-            // localStorage.setItem("tableRows", JSON.stringify(tableBody))
+            function remove(){
+                tableRow.remove()
+            }
+
+            localStorage.setItem("tableRows", JSON.stringify(tableBody))
         })
     })
 </script>
