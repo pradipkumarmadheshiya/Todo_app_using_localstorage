@@ -117,12 +117,17 @@
             const inputValue=input.value
             const priorityValue=priority.value
 
+            if (inputValue==""){
+                alert("Task cannot be Empty!")
+                return
+            }
+
             let tableRow=document.createElement("tr")
             
             tableRow.innerHTML=
                 `<td><p class="task">${inputValue}</p></td>
                 <td><p class="priority">${priorityValue}</p></td>
-                <td><p class="Status"></p></td>
+                <td><p class="Status"></p>Pending</td>
                 <td><button class="remove-btn">Remove</button></td>`
 
             tableBody.append(tableRow)
