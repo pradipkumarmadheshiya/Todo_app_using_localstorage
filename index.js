@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded",()=>{
     const tasks=JSON.parse(localStorage.getItem("tasks")) || []
 
     tasks.forEach((el) => {
-
+   console.log(el)
         const tableRow=document.createElement("tr")
         tableRow.innerHTML=
             `<td>${el[0]}</td>
-            <td>${el[1]}</td>
-            <td><button onclick="changeStatus('${el[0]}','${el[2]}')">${el[2]}</button></td>
-            <td><button onclick="removeArchive('${el[0]}')">Archive</button></td>` 
-
+            <td style="background-color:${el[1]=="medium"? "rgb(255,255,0)": el[1]=="high"? "rgb(255,0,0)": ""}" >${el[1]}</td>
+            <td><button onclick="changeStatus('${el[0]}','${el[2]}')" class="toggle">${el[2]}</button></td>
+            <td><button onclick="removeArchive('${el[0]}')" class="archiveButton">Archive</button></td>` 
+        
         tableBody.append(tableRow)
     });
 
