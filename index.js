@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         const tableRow=document.createElement("tr")
         tableRow.innerHTML=
             `<td>${el[0]}</td>
-            <td style="background-color:${el[1]=="medium"? "rgb(255,255,0)": el[1]=="high"? "rgb(255,0,0)": ""}" >${el[1]}</td>
+            <td style="color:${el[1]=="Medium"? "rgb(255,255,0)": el[1]=="High"? "rgb(255,0,0)": ""}" >${el[1]}</td>
             <td><button onclick="changeStatus('${el[0]}','${el[2]}')" class="toggle">${el[2]}</button></td>
             <td><button onclick="removeArchive('${el[0]}')" class="archiveButton">Archive</button></td>` 
         

@@ -10,9 +10,9 @@ body {
 }
 nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   background-color: teal;
-  padding: 10px;
+  padding: 20px;
   position: fixed;
   top: 0px;
   width: 100%;
@@ -22,10 +22,24 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+
+nav a::after{
+  content: "";
+  width: 0;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+}
+
+nav a:hover::after{
+  width: 100%;
 }
 
 .container {
@@ -58,13 +72,17 @@ nav a {
 .add-button {
   width: 300px;
   height: 50px;
-  /* margin: 100px 0px; */
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 550;
+}
+
+.add-button:hover{
+  background-color: #77b279;
 }
 
 table {
@@ -73,11 +91,11 @@ table {
   margin-left: 10px;
 }
 
-th,
-td {
+th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 0 8px;
   text-align: left;
+  border-radius: 5px;
 }
 
 th {
@@ -85,7 +103,7 @@ th {
   color: white;
 }
 tr {
-  height: 50px;
+  height: 45px;
 }
 .delete-button {
   background-color: #f44336;
@@ -95,11 +113,12 @@ tr {
   cursor: pointer;
 }
 .toggle {
-  border: 1px solid rgb(197, 197, 197);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
-    rgba(0, 0, 0, 0.516) 0px 3px 6px;
-  border-radius: 5px;
+  border: 1px solid rgb(255, 255, 255);
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.516) 0px 3px 6px; */
+  border-radius: 4px;
   cursor: pointer;
+  padding: 2px 5px;
 }
 #InputSection {
   border: 1px solid rgb(229, 229, 229);
@@ -115,7 +134,7 @@ tr {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-#errorBox {
+/* #errorBox {
   border: 2px solid red;
   border-radius: 5px;
   height: 25px;
@@ -125,11 +144,57 @@ tr {
   color: red;
   font-weight: 600;
   display: none;
-}
+} */
 .archiveButton{
   border: none;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: #ff594d;
   color: white;
   cursor: pointer;
+  padding: 4px 6px;
+}
+
+                /* Responsiveness */
+@media (max-width:600px) {
+  nav {
+    padding: 15px;
+  }
+  nav a {
+    font-size: 15px;
+  }
+  .todo-input {
+    width: 40%;
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+  .priority-select {
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  .add-button {
+    width: 150px;
+    height: 35px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 550;
+  }
+  tr {
+    height: 35px;
+  }
+  th, td {
+    font-size: 14px;
+  }
+  #InputSection {
+    width: 300px;
+    height: 200px;
+    padding: 30px;
+  }
 }
