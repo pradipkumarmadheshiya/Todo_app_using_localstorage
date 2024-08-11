@@ -22,8 +22,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
 
     addTodoButton.addEventListener("click", ()=>{
+        let todo=inputTitle.value
+        todo = todo.trim()
 
-        if (inputTitle.value===""){
+        if (todo==""){
             alert("Todo cannot be empty!")
             return
         }
