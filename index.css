@@ -44,11 +44,11 @@ nav a:hover::after{
 
 .container {
   /* border: 1px solid black; */
-  margin: 100px auto;
+  margin: 100px 20px;
   display: flex;
   justify-content:center;
-  align-items: start;
-  width: 80%;
+  /* align-items: start; */
+  /* width: 80%; */
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -89,6 +89,7 @@ table {
   width: 40%;
   border-collapse: collapse;
   margin-left: 10px;
+  /* border: 1px solid black; */
 }
 
 th, td {

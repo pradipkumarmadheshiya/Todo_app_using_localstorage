@@ -2,12 +2,17 @@ let addTodoButton = document.getElementById("addBtn");
 let tableBody = document.getElementById("todoTableBody");
 let inputTitle = document.getElementById("todoName");
 let prioritySelect = document.getElementById("priority");
+const todoTable=document.getElementById("todoTable")
 
 // showTable:==>
 
 document.addEventListener("DOMContentLoaded",()=>{
 
     const tasks=JSON.parse(localStorage.getItem("tasks")) || []
+
+    if (tasks.length===0){
+        todoTable.innerHTML=""
+    }
 
     tasks.forEach((el) => {
    console.log(el)
